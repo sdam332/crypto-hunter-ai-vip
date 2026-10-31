@@ -1,0 +1,19 @@
+services:
+  - type: worker
+    name: crypto-hunter-ai-vip
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m app.bot
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: ADMIN_CHAT_ID
+        sync: false
+      - key: SHARIAH_APPROVED_SYMBOLS
+        value: ""
+      - key: REPORT_INTERVAL_HOURS
+        value: "12"
+      - key: SCAN_INTERVAL_SECONDS
+        value: "60"
+      - key: TOP_N
+        value: "30"
